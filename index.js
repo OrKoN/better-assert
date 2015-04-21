@@ -28,10 +28,7 @@ function assert(expr) {
   var line = src.split('\n')[lineno-1];
   var src = line.match(/assert\((.*)\)/)[1];
 
-  var err = new Error({
-    message: src,
-    stackStartFunction: stack[0].getFunction()
-  });
+  var err = new Error(src, file, lineno);
 
   throw err;
 }
