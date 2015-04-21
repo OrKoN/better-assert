@@ -2,8 +2,7 @@
  * Module dependencies.
  */
 
-var AssertionError = require('assert').AssertionError
-  , callsite = require('callsite')
+var callsite = require('callsite')
   , fs = require('fs')
 
 /**
@@ -29,7 +28,7 @@ function assert(expr) {
   var line = src.split('\n')[lineno-1];
   var src = line.match(/assert\((.*)\)/)[1];
 
-  var err = new AssertionError({
+  var err = new Error({
     message: src,
     stackStartFunction: stack[0].getFunction()
   });
